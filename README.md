@@ -6,9 +6,7 @@
 
 ## 📌 Project Overview
 
-This project presents an **interactive sales dashboard** built using **Power BI**, with **Python** integration for data preprocessing and advanced visuals.
-
-An interactive Power BI dashboard exploring sales performance across regions, product categories, and months using the Sample Superstore dataset. A Python visual built with Matplotlib compares average sales per order line by category.
+This project presents an interactive sales dashboard built with Power BI using the Sample Superstore dataset. It explores sales performance across regions, product categories, and a chronological monthly trend from 2014 to 2017. A custom Python visual built with Matplotlib compares average sales per order line across product categories.
 
 ---
 
@@ -16,21 +14,24 @@ An interactive Power BI dashboard exploring sales performance across regions, pr
 
 - 📘 **Power BI Desktop**
 - 🐍 **Python (Pandas, Matplotlib)** *(used inside Power BI)*
-- 📁 Dataset: `Sample - Superstore.csv`
+- 📁 Dataset: `Sample_Superstore.csv`
 - 💡 Data Source: [Kaggle – Superstore Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
 
 ---
 
 ## Python visual in Power BI (via Python Script)
 
--The report includes a Python visual built with Matplotlib. It groups the data by `Category` and calculates the **mean of `Sales` per order line**. The result complements the category-total visual by showing a different metric: average sales per row rather than total sales.
+-Data Preparation
 
--`Row ID` is included in the Python visual's field inputs so Power BI's generated Python input table retains row-level records rather than collapsing identical combinations of selected fields before the script runs.
+The project includes a Python notebook, Superstore-PowerBI_Analysis.ipynb, intended for data preparation, including date processing and creation of the MonthYear field for time-series analysis.
 
--Used **Python script inside Power BI** to clean the dataset and create a new `MonthYear` column for time-series analysis.
+-Custom Python Visual
 
-🔹 Implemented via:
-> **Home → Get Data → Python script**
+A Python visual built with Matplotlib compares average sales per order line across Furniture, Office Supplies, and Technology. The visual calculates the mean of Sales grouped by Category, complementing the dashboard's category-total chart.
+
+Row ID is included in the Python visual's input fields to help preserve row-level records in the dataset passed to the script by Power BI.
+
+The Python visual is configured within Power BI Desktop using the Python visual in the Visualizations pane.
 
 ---
 
@@ -41,9 +42,7 @@ An interactive Power BI dashboard exploring sales performance across regions, pr
 | 📉 Line Chart | Show **monthly sales trend** using `MonthYear` |
 | 📊 Bar Chart | Compare **sales by Region** |
 | 🍩 Donut Chart | Breakdown of **sales by Category** |
-| 📦 Card Visuals | Show total sales in selected filters |
-| 🧮 Python Visual | Custom bar chart created using Matplotlib |
-| 🎛 Slicers | Filters by Region & Category |
+| 🧮 Python Bar Chart | Compare average sales per order line by category |
 
 ---
 
@@ -59,12 +58,13 @@ The Power BI report includes:
 
 ## 📊 Key Insights
 
-- **West** is the highest-performing region, with sales of approximately **$0.73M**.
-- **Technology** is the leading category by total sales, at approximately **$836.15K**.
-- **November** records the highest monthly sales, at approximately **$352.46K**, while **February** records the lowest, at approximately **$59.75K**.
-- In the Python visual, **Technology has the highest average sales per order line** among the three categories.
+- West is the highest-performing region, with sales of approximately $0.73M.
+- Technology is the leading category by total sales, at approximately $836.15K, representing 36.4% of the displayed category sales.
+- Regional sales vary, with East at approximately $0.68M, Central at $0.50M, and South at $0.39M.
+- The chronological monthly sales chart shows substantial variation across the 2014–2017 period, with several peaks and declines.
+- In the Python visual, Technology has the highest average sales per order line among the three categories.
 
-These findings describe the patterns visible in the report; they do not establish the causes behind those patterns.
+These observations describe the patterns visible in the dashboard; they do not establish the causes behind those patterns.
 
 ---
 
