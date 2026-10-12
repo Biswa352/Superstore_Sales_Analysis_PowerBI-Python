@@ -1,13 +1,94 @@
-Superstore Sales Insights
-West region is the clear revenue leader – ≈ $0.73 M in sales, ~8 % ahead of East and ~46 % above South.
-Action: Prioritise inventory and marketing support for West to maintain its momentum.
+# Superstore Sales Analysis — Case Study
 
-Technology is the top‑performing category – ≈ $836 K (≈ 36 % of total sales).
-Furniture follows at ≈ $742 K, while Office Supplies lags at ≈ $325 K.
-Action: Expand the Technology product line or upsell bundles to capture even more share.
+## 1. Overview
 
-Year‑end surge: Sales accelerate sharply after September, peaking in November–December (Dec ≈ $350 K, the single‑best month).
-Action: Plan promotions/stock in Q4 to leverage the holiday‑season lift.
+I used the Sample Superstore dataset to explore sales performance across regions, product categories, and months. I built an interactive report in Power BI and added a Python visual with Matplotlib to compare average sales per order line by category.
 
-Early‑year softness & mid‑year dip: February is the weakest month (< $60 K) and April–July plateau (~$140–160 K).
-Action: Introduce spring‑summer campaigns or discounts to smooth revenue seasonality.
+The goal was to identify where sales were strongest, which categories contributed most to total sales, and how sales changed over time.
+
+## 2. Business Questions
+
+- Which regions generate the highest sales?
+- Which product categories contribute most to total sales?
+- How does sales performance vary by month?
+- How does average sales per order line differ across categories?
+
+## 3. Dashboard Findings
+
+### Regional Performance
+
+The West region leads with approximately **$0.73 million** in sales, followed by the East at approximately **$0.68 million**. Central contributes approximately **$0.50 million**, while the South records approximately **$0.39 million**.
+
+The report shows a clear difference in sales contribution across regions, with West and East accounting for the largest portions of the displayed regional totals.
+
+### Category Performance
+
+Technology generates approximately **$836.15K** in sales, making it the leading category by total sales. Furniture contributes approximately **$742K**, while Office Supplies contributes approximately **$719.05K**.
+
+Technology therefore has the largest total sales contribution in the report. The category totals show overall sales volume, but they do not by themselves explain profitability, demand, or the reasons behind the differences.
+
+### Monthly Sales Trend
+
+Sales vary across the year rather than remaining consistent from month to month. November is the strongest month in the displayed results, at approximately **$352.46K**, followed by December at approximately **$330K**. February is the weakest month, at approximately **$59.75K**.
+
+The visible peaks toward the end of the year suggest that this period is important to investigate further. The dashboard alone does not establish why these peaks occur.
+
+## 4. Python Visual: Average Sales per Order Line
+
+I added a Python visual to compare the mean `Sales` value for each product category. The visual uses Matplotlib and groups the records by `Category`.
+
+```python
+import matplotlib.pyplot as plt
+
+category_summary = (
+    dataset.groupby("Category", as_index=False)
+    ["Sales"].mean()
+)
+
+plt.figure(figsize=(8, 5))
+plt.bar(
+    category_summary["Category"],
+    category_summary["Sales"]
+)
+
+plt.title("Average Sales per Order Line by Category")
+plt.xlabel("Category")
+plt.ylabel("Average Sales per Order Line")
+plt.xticks(rotation=15)
+plt.tight_layout()
+plt.show()
+```
+
+In this visual, Technology has the highest average sales per order line, followed by Furniture and Office Supplies.
+
+This is a different measure from total sales. The category-total chart adds sales across records, whereas this Python visual calculates the average `Sales` value per row. The two visuals should therefore be interpreted as complementary rather than interchangeable.
+
+`Row ID` is included among the Python visual's input fields to help preserve the row-level records in the dataset passed to the script by Power BI.
+
+## 5. Data Preparation
+
+The project includes a Python notebook, `Superstore-PowerBI_Analysis.ipynb`, intended for data preparation. It includes date processing and creation of a `MonthYear` field to support monthly time-series analysis. The project also includes the cleaned workbook `Superstore_Cleaned.xls`, which is used with the Power BI report.
+
+## 6. Tools Used
+
+- **Python and Pandas** — data preparation and date processing
+- **Power BI** — interactive report and visual analysis
+- **Matplotlib** — Python chart embedded in the report
+- **Sample Superstore dataset** — source data
+
+## 7. Opportunities for Further Analysis
+
+The current report focuses on sales. Further analysis could add:
+- Profit and profit margin by region and category
+- Product-level performance and loss-making items
+- Discount patterns and their relationship with profit
+- Year-over-year and month-over-month comparisons
+- Deeper investigation into the late-year sales peaks
+
+These are potential extensions, not findings established by the current report.
+
+## 8. Conclusion
+
+The report identifies West as the leading region, Technology as the largest category by total sales, and November as the strongest month in the displayed results. The additional Python visual shows that Technology also has the highest average sales per order line.
+
+Together, the Power BI visuals provide an overview of sales distribution across geography, product categories, and time, while highlighting areas that could be explored in a more detailed business analysis.
