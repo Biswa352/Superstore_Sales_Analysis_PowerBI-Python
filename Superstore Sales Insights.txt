@@ -35,7 +35,7 @@ The goal was to identify where sales were strongest, which categories contribute
 
 - Technology is the largest category by total sales in the dashboard.
 
-### Monthly Sales Trend(2014–2017)
+### Monthly Sales Trend (2014–2017)
 
 - The chronological time-series chart shows changes in monthly sales across the four-year period.
 
