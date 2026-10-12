@@ -21,11 +21,11 @@ This project presents an interactive sales dashboard built with Power BI using t
 
 ## Python visual in Power BI (via Python Script)
 
--Data Preparation
+-##Data Preparation
 
 The project includes a Python notebook, Superstore-PowerBI_Analysis.ipynb, intended for data preparation, including date processing and creation of the MonthYear field for time-series analysis.
 
--Custom Python Visual
+-##Custom Python Visual
 
 A Python visual built with Matplotlib compares average sales per order line across Furniture, Office Supplies, and Technology. The visual calculates the mean of Sales grouped by Category, complementing the dashboard's category-total chart.
 
@@ -73,8 +73,8 @@ These observations describe the patterns visible in the dashboard; they do not e
 - `Sample_Superstore.csv` — source dataset
 - `Superstore_Cleaned.xls` — cleaned workbook used in the project
 - `Superstore-PowerBI_Analysis.ipynb` | Python notebook used for data preparation, including date processing and creation of the `MonthYear` field for time-series analysis
-- `Superstore Sales PowerBI Python Analysis.png` – Power BI file with all visuals
-- `dashboard_screenshot.png` – Visual export of dashboard
+- `Superstore_Sales.pbix` — Power BI report with all visuals
+- `Superstore Sales PowerBI Python Analysis.png` – Visual export of dashboard
 - `Superstore Sales Insights.txt` – Business observations based on the dashboard
 - `README.md` – Project documentation (this file)
 - `LICENSE` – MIT License
