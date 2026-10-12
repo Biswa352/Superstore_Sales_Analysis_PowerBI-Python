@@ -17,21 +17,31 @@ The goal was to identify where sales were strongest, which categories contribute
 
 ### Regional Performance
 
-The West region leads with approximately **$0.73 million** in sales, followed by the East at approximately **$0.68 million**. Central contributes approximately **$0.50 million**, while the South records approximately **$0.39 million**.
+- The West region leads with approximately $0.73 million in sales.
 
-The report shows a clear difference in sales contribution across regions, with West and East accounting for the largest portions of the displayed regional totals.
+- The East follows with approximately $0.68 million.
+
+- Central contributes approximately $0.50 million, while South records approximately $0.39 million.
+
+- West and East are the two largest regional contributors in the report.
 
 ### Category Performance
 
-Technology generates approximately **$836.15K** in sales, making it the leading category by total sales. Furniture contributes approximately **$742K**, while Office Supplies contributes approximately **$719.05K**.
+- Technology leads with approximately $836.15K, representing 36.4% of total category sales.
 
-Technology therefore has the largest total sales contribution in the report. The category totals show overall sales volume, but they do not by themselves explain profitability, demand, or the reasons behind the differences.
+- Furniture contributes approximately $742K (32.3%).
 
-### Monthly Sales Trend
+- Office Supplies contributes approximately $719.05K (31.3%).
 
-Sales vary across the year rather than remaining consistent from month to month. November is the strongest month in the displayed results, at approximately **$352.46K**, followed by December at approximately **$330K**. February is the weakest month, at approximately **$59.75K**.
+- Technology is the largest category by total sales in the dashboard.
 
-The visible peaks toward the end of the year suggest that this period is important to investigate further. The dashboard alone does not establish why these peaks occur.
+### Monthly Sales Trend(2014–2017)
+
+- The chronological time-series chart shows changes in monthly sales across the four-year period.
+
+- Sales fluctuate from month to month, with visible peaks and declines.
+
+- The chart should be used to identify specific high- and low-performing months by date rather than combining the same calendar month across different years.
 
 ## 4. Python Visual: Average Sales per Order Line
 
@@ -59,11 +69,11 @@ plt.tight_layout()
 plt.show()
 ```
 
-In this visual, Technology has the highest average sales per order line, followed by Furniture and Office Supplies.
+- The custom Python visual compares the mean sales value per order line for Furniture, Office Supplies, and Technology.
 
-This is a different measure from total sales. The category-total chart adds sales across records, whereas this Python visual calculates the average `Sales` value per row. The two visuals should therefore be interpreted as complementary rather than interchangeable.
+- Technology has the highest average sales per order line in the visual.
 
-`Row ID` is included among the Python visual's input fields to help preserve the row-level records in the dataset passed to the script by Power BI.
+- This metric differs from total category sales: it represents the average sales value per row, not the sum of all sales in a category.
 
 ## 5. Data Preparation
 
@@ -89,6 +99,6 @@ These are potential extensions, not findings established by the current report.
 
 ## 8. Conclusion
 
-The report identifies West as the leading region, Technology as the largest category by total sales, and November as the strongest month in the displayed results. The additional Python visual shows that Technology also has the highest average sales per order line.
+The dashboard identifies West as the leading region and Technology as the leading category by total sales. The chronological monthly trend provides a view of how sales change over time, while the Python visual adds a comparison of average sales per order line.
 
-Together, the Power BI visuals provide an overview of sales distribution across geography, product categories, and time, while highlighting areas that could be explored in a more detailed business analysis.
+These observations describe the displayed sales patterns and do not, on their own, explain the causes of those patterns.
