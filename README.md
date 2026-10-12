@@ -73,9 +73,9 @@ These observations describe the patterns visible in the dashboard; they do not e
 - `Sample_Superstore.csv` — source dataset
 - `Superstore_Cleaned.xls` — cleaned workbook used in the project
 - `Superstore-PowerBI_Analysis.ipynb` | Python notebook used for data preparation, including date processing and creation of the `MonthYear` field for time-series analysis
-- `Superstore_Dashboard.pbix` – Power BI file with all visuals
+- `Superstore Sales PowerBI Python Analysis.png` – Power BI file with all visuals
 - `dashboard_screenshot.png` – Visual export of dashboard
-- `Insights.txt` – Business observations based on the dashboard
+- `Superstore Sales Insights.txt` – Business observations based on the dashboard
 - `README.md` – Project documentation (this file)
 - `LICENSE` – MIT License
 
