@@ -8,10 +8,7 @@
 
 This project presents an **interactive sales dashboard** built using **Power BI**, with **Python** integration for data preprocessing and advanced visuals.
 
-The dashboard analyzes sales data from a fictional Superstore to extract business insights such as:
-- Sales trends across months
-- Regional sales distribution
-- Category-wise performance
+An interactive Power BI dashboard exploring sales performance across regions, product categories, and months using the Sample Superstore dataset. A Python visual built with Matplotlib compares average sales per order line by category.
 
 ---
 
@@ -24,17 +21,13 @@ The dashboard analyzes sales data from a fictional Superstore to extract busines
 
 ---
 
-## 🔄 Data Cleaning (via Python Script)
+## Python visual in Power BI (via Python Script)
 
-Used **Python script inside Power BI** to clean the dataset and create a new `MonthYear` column for time-series analysis.
+-The report includes a Python visual built with Matplotlib. It groups the data by `Category` and calculates the **mean of `Sales` per order line**. The result complements the category-total visual by showing a different metric: average sales per row rather than total sales.
 
-```python
-import pandas as pd
+-`Row ID` is included in the Python visual's field inputs so Power BI's generated Python input table retains row-level records rather than collapsing identical combinations of selected fields before the script runs.
 
-df = pd.read_csv("C:/Users/ASUS/Downloads/Sample_Superstore.csv", encoding='latin1')
-df['Order Date'] = pd.to_datetime(df['Order Date'])
-df['MonthYear'] = df['Order Date'].dt.strftime('%b-%Y')
-```
+-Used **Python script inside Power BI** to clean the dataset and create a new `MonthYear` column for time-series analysis.
 
 🔹 Implemented via:
 > **Home → Get Data → Python script**
@@ -54,22 +47,45 @@ df['MonthYear'] = df['Order Date'].dt.strftime('%b-%Y')
 
 ---
 
+## Dashboard Overview
+
+The Power BI report includes:
+- Sales performance across the four regions
+- Sales contribution by product category
+- Monthly sales trends
+- A Python visual comparing average sales per order line across categories
+
+---
+
 ## 📊 Key Insights
 
-- 🔝 **Technology** category generated the highest sales (~36% of total).
-- 🌍 **West** region led in total revenue (~$730K).
-- 📆 **December** was the strongest sales month.
-- 🔻 **February** saw the lowest sales (~$60K), suggesting seasonal dips.
+- **West** is the highest-performing region, with sales of approximately **$0.73M**.
+- **Technology** is the leading category by total sales, at approximately **$836.15K**.
+- **November** records the highest monthly sales, at approximately **$352.46K**, while **February** records the lowest, at approximately **$59.75K**.
+- In the Python visual, **Technology has the highest average sales per order line** among the three categories.
+
+These findings describe the patterns visible in the report; they do not establish the causes behind those patterns.
 
 ---
 
 ## 📦 Deliverables
 
+- `Sample_Superstore.csv` — source dataset
+- `Superstore_Cleaned.xls` — cleaned workbook used in the project
+- `Superstore-PowerBI_Analysis.ipynb` | Python notebook used for data preparation, including date processing and creation of the `MonthYear` field for time-series analysis
 - `Superstore_Dashboard.pbix` – Power BI file with all visuals
 - `dashboard_screenshot.png` – Visual export of dashboard
 - `Insights.txt` – Business observations based on the dashboard
 - `README.md` – Project documentation (this file)
 - `LICENSE` – MIT License
+
+---
+
+## How to View the Report
+
+1. Download `Superstore_Sales.pbix` from this repository.
+2. Open it in Power BI Desktop.
+3. If Power BI prompts for a data-source location, update the source path to match where the project data files are stored.
 
 ---
 
